@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Disease Diagnostic Prediction System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow-sm border-0 mb-4">
+            <div class="card-header bg-success text-white py-3">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-heart-pulse me-2"></i>Clinical Symptom-Based Disease Prediction</h4>
+            </div>
+            <div class="card-body p-4">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endif %}
+
+                {% if result %}
+                <div class="alert alert-success p-4 mb-4 rounded-3 border-0 shadow-sm">
+                    <h3 class="alert-heading fw-bold text-success mb-2">
+                        <i class="bi bi-clipboard2-pulse me-2"></i>Primary Diagnosis: {{ result.primary_disease }}
+                    </h3>
+                    <p class="lead mb-3">Model Confidence: <strong>{{ result.primary_confidence }}%</strong></p>
+
+                    <h6 class="fw-bold text-dark mt-3">Differential Diagnosis (Top Predictions):</h6>
+                    <ul class="list-group list-group-flush mb-3">
+                        {% for item in result.top_3 %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            <span class="fw-semibold">{{ item.disease }}</span>
+                            <span class="badge bg-success rounded-pill fs-6">{{ item.confidence }}%</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="small text-muted mt-2">
+                        <strong>Symptoms Evaluated:</strong> {{ result.symptoms_reported | join(', ') }}
+                    </div>
+                </div>
+                {% endif %}
+
+                <form method="POST" action="{{ url_for('disease_prediction') }}">
+                    <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                        <h5 class="fw-bold text-secondary mb-0">Select Patient Symptoms</h5>
+                        <small class="text-muted">Choose 2 or more symptoms for higher diagnostic precision</small>
+                    </div>
+
+                    <div class="row g-2 mb-4" style="max-height: 400px; overflow-y: auto;">
+                        {% for sym in symptoms %}
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-check p-2 rounded bg-light border">
+                                <input class="form-check-input ms-0 me-2" type="checkbox" name="symptoms" value="{{ sym }}" id="sym_{{ loop.index }}">
+                                <label class="form-check-label text-dark small fw-semibold" for="sym_{{ loop.index }}">
+                                    {{ sym.replace('_', ' ').title() }}
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-5 fw-bold shadow-sm">
+                            <i class="bi bi-search me-2"></i>Run Diagnostic Analysis
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

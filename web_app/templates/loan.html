@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Loan Approval Prediction System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="card shadow-sm border-0 mb-4">
+            <div class="card-header bg-primary text-white py-3">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-cash-coin me-2"></i>Loan Approval Assessment</h4>
+            </div>
+            <div class="card-body p-4">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endif %}
+
+                {% if result %}
+                <div class="alert alert-{{ result.status_class }} p-4 mb-4 rounded-3 border-0 shadow-sm">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h4 class="alert-heading fw-bold mb-0">
+                            Loan Status: <span class="badge bg-{{ result.status_class }} fs-5">{{ result.verdict }}</span>
+                        </h4>
+                        <span class="fs-5 fw-bold text-{{ result.status_class }}">
+                            Approval Probability: {{ result.approval_probability }}%
+                        </span>
+                    </div>
+                    <div class="progress mb-3" style="height: 12px;">
+                        <div class="progress-bar bg-{{ result.status_class }}" role="progressbar" style="width: {{ result.approval_probability }}%"></div>
+                    </div>
+                    <div class="row text-muted small mt-2">
+                        <div class="col-md-4"><strong>Applicant Income:</strong> ${{ result.applicant_income }}</div>
+                        <div class="col-md-4"><strong>Requested Amount:</strong> ${{ result.loan_amount }}K</div>
+                        <div class="col-md-4"><strong>Credit History:</strong> {{ result.credit_history }}</div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <form method="POST" action="{{ url_for('loan_prediction') }}">
+                    <h5 class="fw-bold text-secondary mb-3 border-bottom pb-2">1. Personal & Demographic Details</h5>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Gender</label>
+                            <select name="Gender" class="form-select">
+                                <option value="Male" selected>Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Marital Status</label>
+                            <select name="Married" class="form-select">
+                                <option value="Yes" selected>Married (Yes)</option>
+                                <option value="No">Single (No)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Dependents</label>
+                            <select name="Dependents" class="form-select">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3+">3+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Education</label>
+                            <select name="Education" class="form-select">
+                                <option value="Graduate" selected>Graduate</option>
+                                <option value="Not Graduate">Not Graduate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-secondary mb-3 border-bottom pb-2">2. Financial & Credit Attributes</h5>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Applicant Income ($)</label>
+                            <input type="number" name="ApplicantIncome" class="form-control" value="5500" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Coapplicant Income ($)</label>
+                            <input type="number" name="CoapplicantIncome" class="form-control" value="1500" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Employment Status</label>
+                            <select name="Self_Employed" class="form-select">
+                                <option value="No" selected>Salaried (No)</option>
+                                <option value="Yes">Self-Employed (Yes)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Loan Amount ($ in Thousands)</label>
+                            <input type="number" name="LoanAmount" class="form-control" value="130" required>
+                            <div class="form-text">e.g. 130 for $130,000</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Loan Term (Months)</label>
+                            <select name="Loan_Amount_Term" class="form-select">
+                                <option value="120">120 (10 Years)</option>
+                                <option value="180">180 (15 Years)</option>
+                                <option value="240">240 (20 Years)</option>
+                                <option value="360" selected>360 (30 Years)</option>
+                                <option value="480">480 (40 Years)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Credit History</label>
+                            <select name="Credit_History" class="form-select">
+                                <option value="1.0" selected>1.0 (Meets Credit Guidelines)</option>
+                                <option value="0.0">0.0 (Delinquent / Defaults)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Property Area</label>
+                            <select name="Property_Area" class="form-select">
+                                <option value="Urban">Urban</option>
+                                <option value="Semiurban" selected>Semiurban</option>
+                                <option value="Rural">Rural</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-3">
+                        <button type="submit" class="btn btn-primary btn-lg px-5 fw-bold shadow-sm">
+                            <i class="bi bi-shield-check me-2"></i>Evaluate Loan Eligibility
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

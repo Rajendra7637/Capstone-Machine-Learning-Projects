@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row text-center mb-5">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-5 fw-bold text-dark mb-3">Capstone Machine Learning Solutions</h1>
+        <p class="lead text-secondary">
+            Industry-oriented predictive intelligence systems integrating automated preprocessing,
+            algorithm evaluation, and real-time interactive decision deployment.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4 justify-content-center">
+    <!-- Project 1 Card -->
+    <div class="col-md-5">
+        <div class="card h-100 shadow-sm border-0 project-card">
+            <div class="card-body p-4 text-center">
+                <div class="icon-circle bg-primary-subtle text-primary mb-3">
+                    <i class="bi bi-bank2 fs-2"></i>
+                </div>
+                <h3 class="card-title fw-bold">Loan Approval Prediction</h3>
+                <p class="card-text text-muted mb-4">
+                    Automated credit risk assessment evaluating applicant income, debt-to-income ratio, credit history,
+                    and loan parameters using benchmarked classification algorithms.
+                </p>
+                <div class="mb-3">
+                    <span class="badge bg-light text-dark border">Random Forest</span>
+                    <span class="badge bg-light text-dark border">Gradient Boosting</span>
+                    <span class="badge bg-light text-dark border">ROC-AUC 88%+</span>
+                </div>
+                <a href="{{ url_for('loan_prediction') }}" class="btn btn-primary px-4 py-2 fw-semibold">
+                    Launch Loan Portal <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Card -->
+    <div class="col-md-5">
+        <div class="card h-100 shadow-sm border-0 project-card">
+            <div class="card-body p-4 text-center">
+                <div class="icon-circle bg-success-subtle text-success mb-3">
+                    <i class="bi bi-hospital fs-2"></i>
+                </div>
+                <h3 class="card-title fw-bold">Disease Prediction System</h3>
+                <p class="card-text text-muted mb-4">
+                    Clinical multi-class diagnostic decision support engine mapping multi-symptom presentations
+                    to 40+ medical conditions with probabilistic confidence scoring.
+                </p>
+                <div class="mb-3">
+                    <span class="badge bg-light text-dark border">Multinomial NB</span>
+                    <span class="badge bg-light text-dark border">Support Vector Machine</span>
+                    <span class="badge bg-light text-dark border">Accuracy 98%+</span>
+                </div>
+                <a href="{{ url_for('disease_prediction') }}" class="btn btn-success px-4 py-2 fw-semibold">
+                    Launch Diagnostic Tool <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

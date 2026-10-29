@@ -1,0 +1,11 @@
+Loan Approval Prediction - Evaluation Report (Logistic Regression)
+=================================================================
+
+              precision    recall  f1-score   support
+
+Rejected (0)     0.8140    0.3846    0.5224        91
+Approved (1)     0.7157    0.9463    0.8150       149
+
+    accuracy                         0.7333       240
+   macro avg     0.7648    0.6655    0.6687       240
+weighted avg     0.7530    0.7333    0.7041       240

@@ -1,0 +1,32 @@
+Disease Prediction System - Evaluation Report (Random Forest)
+=================================================================
+
+                      precision    recall  f1-score   support
+
+                AIDS     1.0000    1.0000    1.0000        15
+             Allergy     1.0000    1.0000    1.0000        15
+           Arthritis     1.0000    1.0000    1.0000        15
+    Bronchial Asthma     1.0000    1.0000    1.0000        15
+Cervical spondylosis     0.9375    1.0000    0.9677        15
+ Chronic cholestasis     1.0000    1.0000    1.0000        15
+         Common Cold     1.0000    1.0000    1.0000        15
+              Dengue     1.0000    1.0000    1.0000        15
+            Diabetes     1.0000    1.0000    1.0000        15
+       Drug Reaction     1.0000    1.0000    1.0000        15
+    Fungal infection     1.0000    1.0000    1.0000        15
+                GERD     1.0000    1.0000    1.0000        15
+     Gastroenteritis     1.0000    1.0000    1.0000        15
+         Hepatitis A     1.0000    1.0000    1.0000        15
+        Hypertension     1.0000    0.9333    0.9655        15
+      Hypothyroidism     1.0000    1.0000    1.0000        15
+            Jaundice     1.0000    1.0000    1.0000        15
+             Malaria     1.0000    1.0000    1.0000        15
+            Migraine     1.0000    1.0000    1.0000        15
+ Peptic ulcer diseae     1.0000    1.0000    1.0000        15
+           Pneumonia     1.0000    1.0000    1.0000        15
+        Tuberculosis     1.0000    1.0000    1.0000        15
+             Typhoid     1.0000    1.0000    1.0000        15
+
+            accuracy                         0.9971       345
+           macro avg     0.9973    0.9971    0.9971       345
+        weighted avg     0.9973    0.9971    0.9971       345

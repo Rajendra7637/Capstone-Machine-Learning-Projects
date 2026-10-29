@@ -1,0 +1,91 @@
+{
+    "best_model": "Random Forest",
+    "models_comparison": {
+        "Random Forest": {
+            "cv_accuracy_mean": 0.9986,
+            "cv_accuracy_std": 0.0029,
+            "test_accuracy": 0.9971,
+            "precision": 0.9973,
+            "recall": 0.9971,
+            "f1_score": 0.9971,
+            "training_time_sec": 1.653
+        },
+        "Naive Bayes": {
+            "cv_accuracy_mean": 1.0,
+            "cv_accuracy_std": 0.0,
+            "test_accuracy": 0.9971,
+            "precision": 0.9973,
+            "recall": 0.9971,
+            "f1_score": 0.9971,
+            "training_time_sec": 0.046
+        },
+        "Decision Tree": {
+            "cv_accuracy_mean": 0.7384,
+            "cv_accuracy_std": 0.0441,
+            "test_accuracy": 0.7507,
+            "precision": 0.7806,
+            "recall": 0.7507,
+            "f1_score": 0.7496,
+            "training_time_sec": 0.051
+        },
+        "Support Vector Machine": {
+            "cv_accuracy_mean": 0.9964,
+            "cv_accuracy_std": 0.0023,
+            "test_accuracy": 0.9971,
+            "precision": 0.9973,
+            "recall": 0.9971,
+            "f1_score": 0.9971,
+            "training_time_sec": 0.819
+        },
+        "K-Nearest Neighbors": {
+            "cv_accuracy_mean": 0.9978,
+            "cv_accuracy_std": 0.0018,
+            "test_accuracy": 0.9971,
+            "precision": 0.9973,
+            "recall": 0.9971,
+            "f1_score": 0.9971,
+            "training_time_sec": 0.066
+        },
+        "Multi-Layer Perceptron": {
+            "cv_accuracy_mean": 0.9978,
+            "cv_accuracy_std": 0.0029,
+            "test_accuracy": 0.9971,
+            "precision": 0.9973,
+            "recall": 0.9971,
+            "f1_score": 0.9971,
+            "training_time_sec": 6.223
+        }
+    },
+    "metadata": {
+        "total_samples": 1725,
+        "total_symptoms": 81,
+        "total_diseases": 23,
+        "disease_list": [
+            "AIDS",
+            "Allergy",
+            "Arthritis",
+            "Bronchial Asthma",
+            "Cervical spondylosis",
+            "Chronic cholestasis",
+            "Common Cold",
+            "Dengue",
+            "Diabetes",
+            "Drug Reaction",
+            "Fungal infection",
+            "GERD",
+            "Gastroenteritis",
+            "Hepatitis A",
+            "Hypertension",
+            "Hypothyroidism",
+            "Jaundice",
+            "Malaria",
+            "Migraine",
+            "Peptic ulcer diseae",
+            "Pneumonia",
+            "Tuberculosis",
+            "Typhoid"
+        ],
+        "train_samples": 1380,
+        "test_samples": 345
+    }
+}

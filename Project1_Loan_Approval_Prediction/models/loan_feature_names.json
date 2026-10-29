@@ -1,0 +1,20 @@
+[
+    "ApplicantIncome",
+    "CoapplicantIncome",
+    "LoanAmount",
+    "Loan_Amount_Term",
+    "Total_Income",
+    "Loan_to_Income_Ratio",
+    "Income_Log",
+    "LoanAmount_Log",
+    "Gender_Male",
+    "Married_Yes",
+    "Dependents_1",
+    "Dependents_2",
+    "Dependents_3+",
+    "Education_Not Graduate",
+    "Self_Employed_Yes",
+    "Credit_History_1.0",
+    "Property_Area_Semiurban",
+    "Property_Area_Urban"
+]
