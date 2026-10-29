@@ -134,6 +134,14 @@ flowchart TD
 
 The web application is implemented in **Flask** with responsive Bootstrap 5 styling and real-time REST API endpoints.
 
+### 🖼️ Interactive Web Dashboard Screenshots
+
+| Portal View | Description & Interface Preview |
+|:---|:---|
+| **Unified Portal Home**<br>`http://localhost:5000/` | Central navigation hub with project overviews, algorithmic metric badges, and single-click access.<br><br>![Unified Portal Home](screenshots/dashboard_home.png) |
+| **Loan Approval Prediction Interface**<br>`http://localhost:5000/loan` | Interactive applicant credit underwriting form with live probabilistic outcome gauge and parameter validation.<br><br>![Loan Approval Dashboard](screenshots/loan_prediction_dashboard.png) |
+| **Clinical Disease Diagnostic Interface**<br>`http://localhost:5000/disease` | Multi-symptom selector and disease prediction engine with instant diagnostic confidence indicator.<br><br>![Disease Prediction Dashboard](screenshots/disease_prediction_dashboard.png) |
+
 ### 1. Launch Web Application
 ```bash
 cd web_app
@@ -225,6 +233,11 @@ The mandatory PowerPoint presentation has been generated in [`presentation/Capst
 ```
 Capstone-Machine-Learning-Projects/
 ├── README.md                                 # Full documentation & project guide
+│
+├── screenshots/                              # Web application UI screenshots
+│   ├── dashboard_home.png                    # Unified portal home view
+│   ├── loan_prediction_dashboard.png         # Loan approval prediction interface
+│   └── disease_prediction_dashboard.png      # Disease diagnostic interface
 │
 ├── presentation/                             # Submission PowerPoint Presentation
 │   └── Capstone_ML_Projects_Presentation.pptx # 15-Slide Executive Deck
