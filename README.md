@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Executive Overview
+## Executive Overview
 
 This repository contains the complete implementation, datasets, trained model artifacts, interactive web prediction interfaces, and presentation assets for **Lab Sheet-10: Capstone Machine Learning Projects**.
 
@@ -30,16 +30,6 @@ The capstone integrates two complete real-world predictive applications spanning
 
 ---
 
-## 📋 Academic Submission Guidelines Compliance
-
-| Submission Requirement | Repository Location | Format & Verification |
-|:---|:---|:---:|
-| **1. Source Code (.ipynb / .py)** | [`Project1_Loan_Approval_Prediction/`](Project1_Loan_Approval_Prediction/)<br>[`Project2_Disease_Prediction/`](Project2_Disease_Prediction/) | Modular Python scripts (`src/`) & interactive Jupyter Notebooks (`notebooks/`) |
-| **2. Datasets** | [`datasets/loan_approval_data.xlsx`](datasets/loan_approval_data.xlsx)<br>[`datasets/disease_prediction_data.xlsx`](datasets/disease_prediction_data.xlsx) | Multi-Sheet Excel (`.xlsx`) & CSV (`.csv`) |
-| **3. Trained Models (.joblib)** | [`Project1_Loan_Approval_Prediction/models/`](Project1_Loan_Approval_Prediction/models/)<br>[`Project2_Disease_Prediction/models/`](Project2_Disease_Prediction/models/) | Serialized models & preprocessors (`.joblib`) |
-| **4. PowerPoint Presentation (12–15 slides)** | [`presentation/Capstone_ML_Projects_Presentation.pptx`](presentation/Capstone_ML_Projects_Presentation.pptx) | **15-Slide Professional Presentation** covering architecture, models, metrics, and conclusions |
-| **5. Web Prediction Interface** | [`web_app/`](web_app/) | Full Flask application with responsive web UI & REST API |
-| **6. System Architecture & Flowchart** | Documented below in README | Mermaid visual processing pipeline |
 
 ---
 
@@ -77,7 +67,7 @@ flowchart TD
 
 ---
 
-## 💳 Project 1: Loan Approval Prediction System
+##  Project 1: Loan Approval Prediction System
 
 ### 1. Preprocessing & Feature Engineering
 - **Missing Value Imputation:** Continuous attributes (`ApplicantIncome`, `LoanAmount`, `Loan_Amount_Term`) imputed using median; categorical attributes (`Credit_History`, `Self_Employed`, `Dependents`, `Married`) imputed using mode.
@@ -106,7 +96,7 @@ flowchart TD
 
 ---
 
-## 🩺 Project 2: Disease Prediction System
+##  Project 2: Disease Prediction System
 
 ### 1. Clinical Data & Multi-Class Formulation
 - Evaluates 80+ clinical symptoms across 23 standardized medical conditions (Diabetes, Malaria, Dengue, Pneumonia, Tuberculosis, Hypertension, Jaundice, etc.).
@@ -130,11 +120,11 @@ flowchart TD
 
 ---
 
-## 🌐 Web Application & Deployment Guide
+##  Web Application & Deployment Guide
 
 The web application is implemented in **Flask** with responsive Bootstrap 5 styling and real-time REST API endpoints.
 
-### 🖼️ Interactive Web Dashboard Screenshots
+###  Interactive Web Dashboard Screenshots
 
 | Portal View | Description & Interface Preview |
 |:---|:---|
@@ -205,7 +195,7 @@ curl -X POST http://localhost:5000/api/predict_disease \
 
 ---
 
-## 📊 Presentation Deliverable (.pptx)
+##  Presentation Deliverable (.pptx)
 
 The mandatory PowerPoint presentation has been generated in [`presentation/Capstone_ML_Projects_Presentation.pptx`](presentation/Capstone_ML_Projects_Presentation.pptx).
 
@@ -228,7 +218,7 @@ The mandatory PowerPoint presentation has been generated in [`presentation/Capst
 
 ---
 
-## 📁 Repository Directory Structure
+##  Repository Directory Structure
 
 ```
 Capstone-Machine-Learning-Projects/
@@ -301,22 +291,10 @@ Capstone-Machine-Learning-Projects/
 
 ---
 
-## 🎓 Viva Examination Quick Reference
 
-1. **Why is Credit History the dominant predictor in Loan Approval?**
-   - Credit history directly captures historical debt repayment behavior. Borrowers with prior defaults exhibit significantly higher transition rates into non-performing assets (NPAs).
-2. **How did you prevent data leakage in preprocessing?**
-   - Preprocessing transformers (`SimpleImputer`, `StandardScaler`, `OneHotEncoder`) were fit exclusively on the training partition ($X_{\text{train}}$) using Scikit-learn `Pipeline` and `ColumnTransformer` before transforming test partitions.
-3. **Why did Naive Bayes perform well on Disease Prediction?**
-   - The symptom matrix consists of orthogonal binary indicators where the conditional independence assumption $P(X_1, X_2, \dots | Y) = \prod P(X_i | Y)$ provides strong discriminative signal across distinct etiologies.
-4. **Why is Recall prioritized over Precision in medical screening?**
-   - In clinical diagnostics, a False Negative (failing to detect a severe disease like Tuberculosis or Pneumonia) carries life-threatening consequences, whereas a False Positive triggers benign confirmatory diagnostic follow-up.
+##  Author & Attribution
 
----
-
-## 👨‍💻 Author & Attribution
-
-- **Developer:** Rajendra Singh ([@Rajendra7637](https://github.com/Rajendra7637))
+- **Developer:** Rajendra Singh Bisht ([@Rajendra7637](https://github.com/Rajendra7637))
 - **Program:** Master of Computer Applications (MCA) – Semester III
 - **Session:** 2026–2027
 - **Project:** Lab Sheet-10 (Capstone Machine Learning Projects)
